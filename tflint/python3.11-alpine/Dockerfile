@@ -22,11 +22,9 @@ LABEL org.opencontainers.image.authors="sre@delogic.io" \
       org.opencontainers.image.vendor="Delogic" \
       org.opencontainers.image.licenses="Apache-2.0"
 
-ARG TARGETARCH=${TARGETARCH:-amd64}
 ARG PRECOMMIT_VERSION=${PRECOMMIT_VERSION:-3.0.2}
-
-ENV OS_ARCH="${TARGETARCH}" \
-    OS_DISTRO="alpine"
+ENV OS_FLAVOUR="alpine" \
+    OS_VERSION="3.17.1"
 
 COPY --from=puller /terraform ./usr/bin/terraform
 COPY --from=puller /tflint ./usr/bin/tflint
